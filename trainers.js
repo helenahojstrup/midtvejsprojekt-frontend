@@ -15,8 +15,17 @@ document.querySelector("#opretBtn").addEventListener("click", function () {
             document.querySelector("#besked").textContent = data;
         });
 });
-
-
+//trainers with their pokemon
+fetch('http://localhost:3000/all/trainers/withPokemon')
+    .then(response => response.json())
+    .then(trainerData =>{
+        const listWithTrainers = document.querySelector('#trainer-list')
+        trainerData.forEach((trainer) => {
+            const p = document.createElement('p')
+            p.textContent = trainer.trainer_name + " - " + trainer.name
+            listWithTrainers.append(p)
+        })
+    });
 
 
 
