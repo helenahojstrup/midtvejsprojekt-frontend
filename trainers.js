@@ -1,4 +1,4 @@
-
+//trainer/new/
 document.querySelector("#opretBtn").addEventListener("click", function () {
 
     fetch("http://localhost:3000/trainer/new/", {
@@ -15,7 +15,9 @@ document.querySelector("#opretBtn").addEventListener("click", function () {
             document.querySelector("#besked").textContent = data;
         });
 });
-//trainers with their pokemon
+
+
+//all/trainers/withPokemon
 fetch('http://localhost:3000/all/trainers/withPokemon')
     .then(response => response.json())
     .then(trainerData =>{
@@ -26,6 +28,9 @@ fetch('http://localhost:3000/all/trainers/withPokemon')
             listWithTrainers.append(p)
         })
     });
+
+//trainer/catch
+
 
 
 
