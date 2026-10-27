@@ -30,7 +30,7 @@ document.querySelector("#opretBtn").addEventListener("click", function () {
 
     fetch("http://localhost:3000/trainer/new/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
             name: document.querySelector("#name").value,
             hometown: document.querySelector("#hometown").value,
@@ -57,37 +57,85 @@ fetch('http://localhost:3000/all/trainers/withPokemon')
     });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //trainer/catch
+document.querySelector("#catchBtn").addEventListener("click", function () {
+
+    fetch("http://localhost:3000/trainer/catch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            trainer_id: document.querySelector("#trainerId").value,
+            pokedex_number: document.querySelector("#pokedexNumber").value
+        })
+    })
+        .then(res => res.text())
+        .then(data => {
+            document.querySelector("#message").textContent = data;
+        });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
