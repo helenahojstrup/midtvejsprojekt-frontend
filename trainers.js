@@ -54,3 +54,5 @@ fetch('http://localhost:3000/all/trainers/withPokemon')
 
 
 
+
+
