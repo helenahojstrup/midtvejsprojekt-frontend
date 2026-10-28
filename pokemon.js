@@ -11,6 +11,7 @@ fetch("http://localhost:3000/all/pokemon")
             const statsListe = document.createElement("ul");
 
             const stats = {
+                primary_type: "Primary type",
                 hp: "HP",
                 attack: "Attack",
                 defence: "Defence",
@@ -36,42 +37,54 @@ fetch("http://localhost:3000/all/pokemon")
         }
     });
 
-
-
-
-
 //pokemon filtre
-const selectedPokemon = document.querySelector("#pokemon-type")
-selectedPokemon.addEventListener("change", () => {
-    fetch('http://localhost:3000/pokemon/filters?primary_type=' + selectedPokemon.value)
-        .then(response => response.json())
-        .then(filter => {
-            console.log(filter)
-        })
-    })
+const selectedPrimaryType = document.querySelector("#pokemon-type")
+const minAttack = document.querySelector("#minAttack")
+const pokemonName = document.querySelector("#pokemonName")
+const hp = document.querySelector("#minHp")
+const sorterAttack = document.querySelector("#sortAttack")
+const filterPokemon = () => {
+        fetch('http://localhost:3000/pokemon/filters?primary_type=' + selectedPrimaryType.value + '&minAttack=' + minAttack.value + '&name=' + pokemonName.value + '&hp=' + hp.value + '&sorter_attack=' + sorterAttack.value)
+            .then(response => response.json())
+            .then(filter => {
+                const getTypes = document.querySelector("#pokemonListe")
+                getTypes.innerHTML = ''
+                filter.forEach((item) => {
+                    const li = document.createElement("li");
+                    li.innerText = item.name;
 
+                    const statsListe = document.createElement("ul");
 
+                    const stats = {
+                        primary_type: "Primary type",
+                        hp: "HP",
+                        attack: "Attack",
+                        defence: "Defence",
+                        speed: "Speed",
+                        special_defence: "Special defence",
+                        special_attack: "Special attack"
+                    };
 
+                    const statsNames = Object.keys(stats);
 
-fetch('http://localhost:3000/all/trainers/withPokemon')
-    .then(response => response.json())
-    .then(trainerData =>{
-        const listWithTrainers = document.querySelector('#trainer-list')
-        trainerData.forEach((trainer) => {
-            const p = document.createElement('p')
-            p.textContent = trainer.trainer_name + " - " + trainer.name
-            listWithTrainers.append(p)
-        })
-    });
+                    for (let j = 0; j < statsNames.length; j++) {
+                        const statObject = document.createElement("li");
+                        const statKey = statsNames[j];
 
+                        statObject.innerText = stats[statKey] + ": " + item[statKey];
 
-fetch("http://localhost:3000/trainer/catch", {
-    method: "POST"
-})
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-    });
+                        statsListe.appendChild(statObject);
+                    }
+                    li.appendChild(statsListe);
+                    getTypes.appendChild(li);
+                });
+            })
+}
+selectedPrimaryType.addEventListener("change", filterPokemon)
+minAttack.addEventListener("change", filterPokemon)
+pokemonName.addEventListener("change", filterPokemon)
+hp.addEventListener("change", filterPokemon)
+sorterAttack.addEventListener("change", filterPokemon)
 
 
 
