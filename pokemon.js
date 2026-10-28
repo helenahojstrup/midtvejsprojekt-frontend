@@ -1,4 +1,4 @@
-// All pokemon
+
 fetch("http://localhost:3000/all/pokemon")
     .then(response => response.json())
     .then(pokemon => {
@@ -60,3 +60,11 @@ fetch('http://localhost:3000/all/trainers/withPokemon')
         })
     });
 
+
+fetch("http://localhost:3000/trainer/catch", {
+    method: "POST"
+})
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    });
