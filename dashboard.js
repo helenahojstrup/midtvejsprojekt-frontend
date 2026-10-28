@@ -95,27 +95,40 @@ fetch("http://localhost:3000/top3strongest")
 
 
 fetch("http://localhost:3000/typeHighestAvgStat")
-    .then(response => response.text())
-    .then(text => {
-        const type = text.split("AVG stat = ")[0].replace("body type:", "").trim();
-        const stat = parseFloat(text.split("AVG stat = ")[1]);
+    .then(response => response.json())
+    .then(data => {
+        const types = data.map(item => item.type);
+        const stats = data.map(item => Number(item.averageStat));
 
         new Chart(document.querySelector("#pokemonChart2"), {
             type: "bar",
             data: {
-                labels: [type],
+                labels: types,
                 datasets: [{
-                    label: "The body type with the highest average stat",
-                    data: [stat]
+                    label: "Højeste Gennemsnits-stat",
+                    data: stats,
+                    backgroundColor: '#9bd0ff'
                 }]
             },
             options: {
                 responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+                scales: { y: { beginAtZero: true } }
             }
+        });
+    });
+
+
+
+
+fetch("http://localhost:3000/pokemon/mostBalanced")
+    .then(response => response.json())
+    .then(data => {
+        const listElement = document.querySelector("#pokemonList");
+        listElement.innerHTML = "";
+
+        data.forEach(pokemon => {
+            const li = document.createElement("li");
+            li.textContent = `${pokemon.name} - Span: ${pokemon.stat_range}`;
+            listElement.appendChild(li);
         });
     });
