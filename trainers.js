@@ -1,4 +1,4 @@
-//list of trainers
+//all/trainers
 
 fetch('http://localhost:3000/all/trainers')
     .then(response => response.json())
@@ -74,7 +74,29 @@ document.querySelector("#catchBtn").addEventListener("click", function () {
         });
 });
 
+//trainer/mostPokemon
 
+fetch("http://localhost:3000/trainer/mostPokemon")
+    .then(response => response.json())
+    .then(mostPokemon => {
+        const mostTrainer = document.querySelector("#mostTrainer");
+
+        if (mostPokemon.length > 0) {
+            const trainerPokemon = mostPokemon[0];
+
+            const trainerPokemonObject = document.createElement("ul");
+            trainerPokemonObject.innerText = trainerPokemon.trainer_name;
+
+
+            const statsList = document.createElement("ul");
+            const statItem = document.createElement("li");
+            statItem.innerText = `Pokemon count: ${trainerPokemon.pokemon_count}`;
+
+            statsList.appendChild(statItem)
+            trainerPokemonObject.appendChild(statsList)
+            mostTrainer.appendChild(trainerPokemonObject)
+        }
+    })
 
 
 
