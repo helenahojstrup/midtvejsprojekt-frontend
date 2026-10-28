@@ -56,72 +56,6 @@ fetch("http://localhost:3000/top3weakest")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 fetch("http://localhost:3000/typeHighestAvgStat")
     .then(response => response.json())
     .then(data => {
@@ -133,7 +67,7 @@ fetch("http://localhost:3000/typeHighestAvgStat")
             data: {
                 labels: types,
                 datasets: [{
-                    label: "Højeste Gennemsnits-stat",
+                    label: "Body type with the highest average stat",
                     data: stats,
                     backgroundColor: '#9bd0ff'
                 }]
