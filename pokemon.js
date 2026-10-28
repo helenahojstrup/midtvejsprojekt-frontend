@@ -36,6 +36,10 @@ fetch("http://localhost:3000/all/pokemon")
         }
     });
 
+
+
+
+
 //pokemon filtre
 const selectedPokemon = document.querySelector("#pokemon-type")
 selectedPokemon.addEventListener("change", () => {
@@ -67,4 +71,41 @@ fetch("http://localhost:3000/trainer/catch", {
     .then(response => response.text())
     .then(data => {
         console.log(data);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//bodytypes
+fetch('http://localhost:3000/bodytypes')
+    .then(response => response.json())
+    .then(pokemonBodyType =>{
+        const listWithBodyTypes = document.querySelector('#bodyTypesList')
+        pokemonBodyType.forEach((bodyType) => {
+            const p = document.createElement('p')
+            p.textContent = bodyType.type + " - " + bodyType.name
+            listWithBodyTypes.append(p)
+        })
     });
