@@ -1,4 +1,4 @@
-
+// All pokemon
 fetch("http://localhost:3000/all/pokemon")
     .then(response => response.json())
     .then(pokemon => {
@@ -35,3 +35,28 @@ fetch("http://localhost:3000/all/pokemon")
             pokemonListe.appendChild(pokeObjects);
         }
     });
+
+//pokemon filtre
+const selectedPokemon = document.querySelector("#pokemon-type")
+selectedPokemon.addEventListener("change", () => {
+    fetch('http://localhost:3000/pokemon/filters?primary_type=' + selectedPokemon.value)
+        .then(response => response.json())
+        .then(filter => {
+            console.log(filter)
+        })
+    })
+
+
+
+
+fetch('http://localhost:3000/all/trainers/withPokemon')
+    .then(response => response.json())
+    .then(trainerData =>{
+        const listWithTrainers = document.querySelector('#trainer-list')
+        trainerData.forEach((trainer) => {
+            const p = document.createElement('p')
+            p.textContent = trainer.trainer_name + " - " + trainer.name
+            listWithTrainers.append(p)
+        })
+    });
+
