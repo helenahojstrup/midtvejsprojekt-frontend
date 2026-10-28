@@ -25,3 +25,97 @@ fetch("http://localhost:3000/top3strongest")
         }
     })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fetch("http://localhost:3000/typeHighestAvgStat")
+    .then(response => response.text())
+    .then(text => {
+        const type = text.split("AVG stat = ")[0].replace("body type:", "").trim();
+        const stat = parseFloat(text.split("AVG stat = ")[1]);
+
+        new Chart(document.querySelector("#pokemonChart2"), {
+            type: "bar",
+            data: {
+                labels: [type],
+                datasets: [{
+                    label: "The body type with the highest average stat",
+                    data: [stat]
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
