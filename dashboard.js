@@ -4,7 +4,7 @@ fetch("http://localhost:3000/top3strongest")
     const names = strongest.map(pokemon => pokemon.name);
     const totalStats = strongest.map(pokemon => pokemon.totalStat);
 
-    const chartElement = document.querySelector("#pokemonChart");
+    const chartElement = document.querySelector("#strongPokemonChart");
 
     new Chart(chartElement, {
         type: "bar",
@@ -25,6 +25,34 @@ fetch("http://localhost:3000/top3strongest")
         }
     })
 })
+
+fetch("http://localhost:3000/top3weakest")
+    .then(response => response.json())
+    .then(weakest => {
+        const names2 = weakest.map(pokemon => pokemon.name);
+        const totalStats2 = weakest.map(pokemon => pokemon.totalStat2);
+
+        const chartElement = document.querySelector("#weakPokemonChart");
+
+        new Chart(chartElement, {
+            type: "bar",
+            data: {
+                labels: names2,
+                datasets: [{
+                    label: "Total Stats",
+                    data: totalStats2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        })
+    })
 
 
 
