@@ -1,0 +1,49 @@
+html {
+    background-color: #3b4cca;
+    scroll-behavior: smooth;
+    margin: 0 20px 20px 20px;
+    color: #fede00;
+}
+
+/*filter*/
+#pokemon-filters {
+    display: none;
+}
+#filterBtn {
+    display: flex;
+    align-items: center;
+    background-color: #cc0000;
+    border: none;
+    padding: 10px 16px;
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+    gap: 10px;
+    cursor: pointer;
+}
+#filterBtn svg {
+    width: 20px;
+    height: 20px;
+}
+#pokemon-filters {
+    display: none;
+    flex-wrap: wrap;
+    background-color: #cc0000;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+#pokemon-filters input,
+#pokemon-filters select {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: white;
+}
+
+/*pokemon Grid*/
