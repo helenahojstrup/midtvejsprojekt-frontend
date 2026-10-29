@@ -15,11 +15,15 @@ html {
     background-color: #cc0000;
     border: none;
     padding: 10px 16px;
-    color: white;
+    color: #ffcb05;
     font-size: 14px;
     border-radius: 8px;
     gap: 10px;
     cursor: pointer;
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    border: 2px solid #fede00;
 }
 #filterBtn svg {
     width: 20px;
@@ -34,6 +38,7 @@ html {
     margin-top: 15px;
     margin-bottom: 20px;
     gap: 15px;
+    border: 2px solid #fede00;;
 }
 #pokemon-filters input,
 #pokemon-filters select {
@@ -43,7 +48,24 @@ html {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 14px;
-    background-color: white;
+    background-color: #ffcb05;
+    color: white;
 }
 
 /*pokemon Grid*/
+#pokemonListe {
+    display: grid;
+    font-size: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+#pokemonListe li {
+        border: 2px solid #fede00;
+    font-size: 10px;
+    list-style: none;
+        border-radius: 12px;
+        padding: 10px 40px;
+}

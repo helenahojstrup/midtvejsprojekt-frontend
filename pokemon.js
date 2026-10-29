@@ -7,6 +7,9 @@ fetch("http://localhost:3000/all/pokemon")
         for (let i = 0; i < pokemon.length; i++) {
             const pokeObjects = document.createElement("li");
             pokeObjects.innerText = pokemon[i].name;
+            const img = document.createElement("img");
+            img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon[i].pokedex_number}.png`;
+            pokeObjects.appendChild(img);
 
             const statsListe = document.createElement("ul");
 
@@ -52,7 +55,9 @@ const filterPokemon = () => {
                 filter.forEach((item) => {
                     const li = document.createElement("li");
                     li.innerText = item.name;
-
+                    const img = document.createElement("img");
+                    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${item.pokedex_number}.png`;
+                    li.appendChild(img);
                     const statsListe = document.createElement("ul");
 
                     const stats = {
