@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <link rel="stylesheet" href="pokemon.css">
+    <title>Pokémon</title>
 </head>
-<script src="pokemon.js"></script>
-<body>
 
+<body>
+<button id="filterBtn"><i data-lucide="sliders-horizontal"></i>
+    FILTERS
+    <i data-lucide="chevron-down" id="filter-arrow"></i>
+</button>
+<div id="pokemon-filters">
+    <select id="pokemon-type">
+        <option value="" disabled selected>Choose Primary Type</option>
+    <option value="%">ALL</option>
+    <option value="Fire">FIRE</option>
+    <option value="Water">WATER</option>
+    <option value="Bug">BUG</option>
+    <option value="Normal">NORMAL</option>
+    <option value="Poison">POISON</option>
+    <option value="Electric">ELECTRIC</option>
+    <option value="Fairy">FAIRY</option>
+    <option value="Fighting">FIGHTING</option>
+    <option value="Ground">GROUND</option>
+    <option value="Psychic">PSYCHIC</option>
+    <option value="Rock">ROCK</option>
+    <option value="Ghost">GHOST</option>
+    <option value="Ice">ICE</option>
+    <option value="Dragon">DRAGON</option>
+    <option value="Grass">GRASS</option>
+    </select>
+    <input type="number" id="minAttack" placeholder="Minimum Attack">
+    <input type="text" id="pokemonName" placeholder="Search Pokémon">
+    <input type="number" id="minHp" placeholder="Minimum HP">
+    <select id="sortAttack">
+        <option value="ASC">Lowest Attack</option>
+        <option value="DESC">Highest Attack</option>
+    </select>
+</div>
+<div id="pokemon-container"></div>
 <ul id="pokemonListe">
 
 </ul>
@@ -16,5 +49,10 @@
 
 <ul class ="pokemon-details"></ul>
 
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons();
+</script>
+<script src="pokemon.js"></script>
 </body>
 </html>
