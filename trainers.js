@@ -25,6 +25,9 @@ fetch('http://localhost:3000/all/trainers')
         trainerListe.appendChild(trainerObjects)
     }
 });
+
+
+
 //trainer/new/
 document.querySelector("#opretBtn").addEventListener("click", function () {
 
@@ -41,14 +44,7 @@ document.querySelector("#opretBtn").addEventListener("click", function () {
         .then(data => {
             document.querySelector("#besked").textContent = data;
 
-            // 1. Opdater listen nedenunder ved at kalde din hent-funktion her:
-            fetchTrainers(); // (Erstat 'fetchTrainers' med navnet på den funktion du bruger til at hente trænere)
 
-            // 2. Valgfrit: Tøm inputfelterne efter oprettelse
-            document.querySelector("#name").value = "";
-            document.querySelector("#hometown").value = "";
-            document.querySelector("#age").value = "";
-        }) })
 
 //all/trainers/withPokemon
 fetch('http://localhost:3000/all/trainers/withPokemon')
@@ -81,7 +77,6 @@ document.querySelector("#catchBtn").addEventListener("click", function () {
 });
 
 //trainer/mostPokemon
-
 fetch("http://localhost:3000/trainer/mostPokemon")
     .then(response => response.json())
     .then(mostPokemon => {
