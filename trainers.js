@@ -1,5 +1,6 @@
 //all/trainers
 
+/*
 fetch('http://localhost:3000/all/trainers')
     .then(response => response.json())
     .then(trainers => {
@@ -8,6 +9,7 @@ fetch('http://localhost:3000/all/trainers')
         for (let i = 0; i < trainers.length; i++) {
             const trainerObjects = document.createElement("li");
             trainerObjects.innerText = trainers[i].trainer_name;
+            console.log(trainers[i].trainer_name)
 
             const trainerStatsList = document.createElement('ul')
             const trainerStats = {
@@ -21,10 +23,24 @@ fetch('http://localhost:3000/all/trainers')
             trainerStatsObject.innerText = trainerStats[trainerStatKey] + ": " + trainers[i][trainerStatKey]
             trainerStatsList.appendChild(trainerStatsObject)
         }
+
         trainerObjects.appendChild(trainerStatsList)
         trainerListe.appendChild(trainerObjects)
     }
 });
+*/
+
+fetch('http://localhost:3000/all/trainers')
+    .then(response => response.json())
+    .then(trainers => {
+        for (let i = 0; i < trainers.length; i++) {
+            const newTag = document.createElement("p");
+            newTag.textContent = "Name: " + trainers[i].trainer_name + " Hometown: " + trainers[i].hometown + " Age: " + trainers[i].age;
+            document.querySelector("#trainer-details").appendChild(newTag);
+        }
+    });
+
+
 //trainer/new/
 document.querySelector("#opretBtn").addEventListener("click", function () {
 
@@ -40,15 +56,8 @@ document.querySelector("#opretBtn").addEventListener("click", function () {
         .then(res => res.text())
         .then(data => {
             document.querySelector("#besked").textContent = data;
-
-            // 1. Opdater listen nedenunder ved at kalde din hent-funktion her:
-            fetchTrainers(); // (Erstat 'fetchTrainers' med navnet på den funktion du bruger til at hente trænere)
-
-            // 2. Valgfrit: Tøm inputfelterne efter oprettelse
-            document.querySelector("#name").value = "";
-            document.querySelector("#hometown").value = "";
-            document.querySelector("#age").value = "";
-        }) })
+        });
+});
 
 //all/trainers/withPokemon
 fetch('http://localhost:3000/all/trainers/withPokemon')
@@ -74,14 +83,13 @@ document.querySelector("#catchBtn").addEventListener("click", function () {
             pokedex_number: document.querySelector("#pokedexNumber").value
         })
     })
-        .then(res => res.text())
-        .then(data => {
-            document.querySelector("#message").textContent = data;
-        });
+    .then(res => res.text())
+    .then(data => {
+        document.querySelector("#message").textContent = data;
+    });
 });
 
 //trainer/mostPokemon
-
 fetch("http://localhost:3000/trainer/mostPokemon")
     .then(response => response.json())
     .then(mostPokemon => {

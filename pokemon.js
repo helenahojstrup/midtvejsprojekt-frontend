@@ -4,27 +4,6 @@ fetch("http://localhost:3000/all/pokemon")
     .then(pokemon => {
         const pokemonListe = document.querySelector("#pokemonListe");
 
-
-        const uniquePokemon = {}
-        for (let f = 0; f < pokemon.length; f++) {
-            const p = pokemon[f];
-            if (!uniquePokemon[p.pokedex_number]){
-                uniquePokemon[p.pokedex_number] = {
-                    name: p.name,
-                    hp: p.hp,
-                    attack: p.attack,
-                    defence: p.defence,
-                    speed: p.speed,
-                    special_defence: p.special_defence,
-                    special_attack: p.special_attack,
-                    moves: new Set()
-
-                };
-                if (p.move_name) uniquePokemon[p.pokedex_number].moves.add(p.move_name)
-            }}
-
-
-
             for (let i = 0; i < pokemon.length; i++) {
             const pokeObjects = document.createElement("li");
             pokeObjects.innerText = pokemon[i].name;
