@@ -1,4 +1,25 @@
 
+/*Header*/
+nav {
+    display: flex;
+    justify-content: center;
+    letter-spacing: 4px;
+}
+nav a {
+    text-decoration: none;
+    color: #cc0000;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #3b4cca;
+    border: 2px solid #cc0000;
+    border-radius: 15px;
+    padding: 15px 35px;
+    margin: 20px 50px;
+}
+nav a:hover {
+    background-color: #cc0000;
+    color: #2456a5;
+}
 body {
     background-color: #ffde00;
     margin: 0;
@@ -12,6 +33,7 @@ h1 {
     font-size: 50px;
     color: #cc0000;
     margin-bottom: 40px;
+    letter-spacing: 4px;
 }
 
 
