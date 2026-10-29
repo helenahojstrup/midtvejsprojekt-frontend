@@ -40,9 +40,15 @@ document.querySelector("#opretBtn").addEventListener("click", function () {
         .then(res => res.text())
         .then(data => {
             document.querySelector("#besked").textContent = data;
-        });
-});
 
+            // 1. Opdater listen nedenunder ved at kalde din hent-funktion her:
+            fetchTrainers(); // (Erstat 'fetchTrainers' med navnet på den funktion du bruger til at hente trænere)
+
+            // 2. Valgfrit: Tøm inputfelterne efter oprettelse
+            document.querySelector("#name").value = "";
+            document.querySelector("#hometown").value = "";
+            document.querySelector("#age").value = "";
+        }) })
 
 //all/trainers/withPokemon
 fetch('http://localhost:3000/all/trainers/withPokemon')

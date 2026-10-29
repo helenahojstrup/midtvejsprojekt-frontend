@@ -4,28 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
+    <link rel="stylesheet" href="trainers.css">
 </head>
 <body>
-<input type="text" id="name" placeholder="Trainer name">
-<input type="text" id="hometown" placeholder="Hometown">
-<input type="number" id="age" placeholder="Age">
-<button id="opretBtn">Create new trainer</button>
-
-<p id="besked"></p>
-
-<input type="number" id="trainerId" placeholder="Trainer ID">
-<input type="number" id="pokedexNumber" placeholder="Pokedex Number">
-<button id="catchBtn">Catch Pokemon</button>
-
-<p id="message"></p>
-
-<p>ALL TRAINERS WITH THEIR POKEMON</p>
-<div id="trainer-list"></div>
 
 
+<div class="form-box">
+    <h2>Create a new trainer to the database</h2>
+    <input type="text" id="name" placeholder="Trainer name">
+    <input type="text" id="hometown" placeholder="Hometown">
+    <input type="number" id="age" placeholder="Age">
+    <button id="opretBtn">Create new trainer</button>
+    <p id="besked"></p>
+</div>
 
-<ul id = "listOfTrainers"></ul>
-<p id = "mostTrainer"></p>
+
+<div class="form-box">
+    <h2>Help a trainer catch a pokemon!</h2>
+    <input type="number" id="trainerId" placeholder="Trainer ID">
+    <input type="number" id="pokedexNumber" placeholder="Pokedex Number">
+    <button id="catchBtn">Catch Pokemon</button>
+    <p id="message"></p>
+</div>
+
+
+<div class="form-box">
+    <h2>All trainers with their pokemon</h2>
+
+
+    <details>
+        <summary>Ash</summary>
+        <ul>
+            <li>Bulbasaur</li>
+            <li>Ivysaur</li>
+            <li>Charizard</li>
+            <li>Butterfree</li>
+            <li>Raticate</li>
+            <li>Pikachu</li>
+            <li>Raichu</li>
+            <li>Vulpix</li>
+            <li>Meowth</li>
+            <li>Poliwag</li>
+            <li>Snorlax</li>
+            <li>Zapdos</li>
+        </ul>
+    </details>
+
+
+    <details>
+        <summary>Misty</summary>
+        <ul>
+            <li>Psyduck</li>
+            <li>Goldeen</li>
+            <li>Staryu</li>
+            <li>Starmie</li>
+        </ul>
+    </details>
+
+
+    <details>
+        <summary>Brock</summary>
+        <ul>
+            <li>Squirtle</li>
+            <li>Zubat</li>
+            <li>Geodude</li>
+            <li>Onix</li>
+        </ul>
+    </details>
+
+
+    <details>
+        <summary>Gary</summary>
+        <ul>
+            <li>Blastoise</li>
+            <li>Pikachu</li>
+            <li>Arcanine</li>
+            <li>Eevee</li>
+        </ul>
+    </details>
+
+
+    <details>
+        <summary>Jessie</summary>
+        <ul>
+            <li>Arbok</li>
+            <li>Meowth</li>
+        </ul>
+    </details>
+
+
+    <details>
+        <summary>James</summary>
+        <ul>
+            <li>Meowth</li>
+            <li>Persian</li>
+            <li>Golduck</li>
+            <li>Weezing</li>
+        </ul>
+    </details>
+
+</div>
+
+<div class = "form-box">
+    <h2>Facts about each trainer</h2>
+
+    <details>
+        <summary>Ash</summary>
+        <ul>
+            <li>Hometown: Pallet Town</li>
+            <li>Age: 10</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>Misty</summary>
+        <ul>
+            <li>Hometown: Cerulean City</li>
+            <li>Age: 10</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>Brock</summary>
+        <ul>
+            <li>Hometown: Pewter City</li>
+            <li>Age: 15</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>Gary</summary>
+        <ul>
+            <li>Hometown: Pallet Town</li>
+            <li>Age: 10</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>Jessie</summary>
+        <ul>
+            <li>Hometown: Unknown</li>
+            <li>Age: 20</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>James</summary>
+        <ul>
+            <li>Hometown: Unknown</li>
+            <li>Age: 20</li>
+        </ul>
+    </details>
+</div>
+
+
+<div id="mostTrainer">
+    <h2>Trainer with most pokemon</h2>
+    <img src="ash.png" alt="Ash" class="trainer-img">
+</div>
+
 
 <script src="trainers.js"></script>
 </body>
