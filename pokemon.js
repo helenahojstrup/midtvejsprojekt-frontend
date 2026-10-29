@@ -4,9 +4,34 @@ fetch("http://localhost:3000/all/pokemon")
     .then(pokemon => {
         const pokemonListe = document.querySelector("#pokemonListe");
 
-        for (let i = 0; i < pokemon.length; i++) {
+
+        const uniquePokemon = {}
+        for (let f = 0; f < pokemon.length; f++) {
+            const p = pokemon[f];
+            if (!uniquePokemon[p.pokedex_number]){
+                uniquePokemon[p.pokedex_number] = {
+                    name: p.name,
+                    hp: p.hp,
+                    attack: p.attack,
+                    defence: p.defence,
+                    speed: p.speed,
+                    special_defence: p.special_defence,
+                    special_attack: p.special_attack,
+                    moves: new Set()
+
+                };
+                if (p.move_name) uniquePokemon[p.pokedex_number].moves.add(p.move_name)
+            }}
+
+
+
+            for (let i = 0; i < pokemon.length; i++) {
             const pokeObjects = document.createElement("li");
             pokeObjects.innerText = pokemon[i].name;
+            const img = document.createElement("img");
+            img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon[i].pokedex_number}.png`;
+            pokeObjects.appendChild(img);
+            pokeObjects.style.cursor = "pointer";
 
             const statsListe = document.createElement("ul");
 
@@ -33,6 +58,47 @@ fetch("http://localhost:3000/all/pokemon")
             }
 
             pokeObjects.appendChild(statsListe);
+
+            let isExpanded = false;
+            let detailsBoxes = null;
+
+            pokeObjects.addEventListener("click", (e) => {
+                e.stopPropagation();
+
+                if (isExpanded) {
+                    detailsBoxes.remove();
+                    isExpanded = false;
+                } else {
+                    detailsBoxes = document.createElement("div");
+                    detailsBoxes.className = "pokemon-details";
+
+
+                const detailsList = document.createElement("ul")
+                const details = {
+                    move_name: "Move name",
+                    move_power: "Move power",
+                    move_accuracy: "Move accuracy",
+                    move_type: "Move type",
+                    move_category: "Move category",
+                    season_number: "Season number",
+                    episode_number: "Episode number"
+                };
+                const detailKeys = Object.keys(details);
+
+                for (let m = 0; m < detailKeys.length; m++) {
+                    const detailObject = document.createElement("li");
+                    const detailKey = detailKeys[m];
+
+                    detailObject.innerText = details[detailKey] + ": " + (pokemon[i][detailKey]);
+                    detailsList.appendChild(detailObject)
+
+                }
+                detailsBoxes.appendChild(detailsList);
+                pokeObjects.appendChild(detailsBoxes);
+                isExpanded = true;
+            }})
+
+
             pokemonListe.appendChild(pokeObjects);
         }
     });
@@ -52,7 +118,9 @@ const filterPokemon = () => {
                 filter.forEach((item) => {
                     const li = document.createElement("li");
                     li.innerText = item.name;
-
+                    const img = document.createElement("img");
+                    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${item.pokedex_number}.png`;
+                    li.appendChild(img);
                     const statsListe = document.createElement("ul");
 
                     const stats = {
@@ -82,9 +150,26 @@ const filterPokemon = () => {
 }
 selectedPrimaryType.addEventListener("change", filterPokemon)
 minAttack.addEventListener("change", filterPokemon)
-pokemonName.addEventListener("change", filterPokemon)
+pokemonName.addEventListener("input", filterPokemon)
 hp.addEventListener("change", filterPokemon)
 sorterAttack.addEventListener("change", filterPokemon)
+
+
+//Filter button
+const filterBtn = document.querySelector("#filterBtn")
+const filterArrow = document.querySelector("#filter-arrow")
+console.log(filterArrow)
+const pokemonFilters = document.querySelector("#pokemon-filters")
+filterBtn.addEventListener("click", () => {
+    if (pokemonFilters.style.display === "flex") {
+        pokemonFilters.style.display = "none"
+        filterArrow.style.transform = "rotate(0deg)"
+    }
+    else {
+        pokemonFilters.style.display = "flex"
+        filterArrow.style.transform = "rotate(180deg)"
+    }
+})
 
 
 

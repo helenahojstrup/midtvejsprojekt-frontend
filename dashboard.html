@@ -1,34 +1,55 @@
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-
+    <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
+<header>
+    <nav>
+        <a href="forside.html">FORSIDE</a>
+        <a href="pokemon.html">POKÉMON</a>
+        <a href="trainers.html">TRAINERS</a>
+    </nav>
+</header>
+<h1>Interessante statistikker</h1>
 
-<div class="chartContainer">
-<canvas id="strongPokemonChart"></canvas>
+<div class="chartsLayout">
+
+    <div class="chartContainer">
+        <h2>Top 3 Strongest Pokemon</h2>
+        <canvas id="strongPokemonChart"></canvas>
+    </div>
+
+    <div class="chartContainer">
+        <h2>Top 3 Weakest Pokemon</h2>
+        <canvas id="weakPokemonChart"></canvas>
+    </div>
+
+    <div class="chartContainer">
+        <h2>Top 3 Bodytypes with Highest Average Stats</h2>
+        <canvas id="pokemonChart2"></canvas>
+    </div>
+
 </div>
 
-<div class="chartContainer">
-<canvas id="weakPokemonChart"></canvas>
+<div class="balancedPokemonCards">
+    <h2>Top 3 Most Balanced Pokemons</h2>
+    <ul id="pokemonList" class="balancePokemonListe"></ul>
+
+    <p class="spanExplanation">
+        Span shows the difference between a Pokémon's highest
+        and lowest stat. A lower span means its stats are more
+        balanced, while a higher span means there is a bigger
+        difference between its stats.
+    </p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-<canvas id="pokemonChart2"></canvas>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<h1>Top 3 Most balanced pokemons</h1>
-<ul id="pokemonList"></ul>
-
-
 <script src="dashboard.js"></script>
+
 </body>
 </html>
-
