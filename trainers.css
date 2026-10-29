@@ -1,11 +1,38 @@
+
+/*Header*/
+header {
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    letter-spacing: 4px;
+    cursor: pointer;
+}
+nav a {
+    text-decoration: none;
+    color: #ffde00;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #3b4cca;
+    border: 2px solid #ffde00;
+    border-radius: 15px;
+    padding: 15px 35px;
+    margin: 20px 50px;
+}
+nav a:hover {
+    background-color: #ffde00;
+    color: #3b4cca;
+}
+/*Body*/
 body {
-    font-family: Arial, sans-serif;
-    color: #333333;
+    color: #3b4cca;
     background-color: #cc0000;
     margin: 0;
     padding: 2rem;
 }
-
 input[type="text"],
 input[type="number"] {
     width: 100%;
@@ -18,8 +45,8 @@ input[type="number"] {
 
 
 .form-box {
-    background-color: white;
-    border: 2px solid #3b4cca;
+    background-color: #ffde00;
+    border: 5px solid #3b4cca;
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -28,7 +55,6 @@ input[type="number"] {
     margin-right: auto;
 }
 
-
 .form-box h2 {
     font-size: 1.1rem;
     color: #3b4cca;
@@ -36,24 +62,23 @@ input[type="number"] {
     margin-bottom: 1rem;
 }
 
-
 button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #ff0000;
-    color: white;
+    background-color: #3b4cca;
+    color: #ffde00;
     font-size: 1rem;
     font-weight: bold;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #ffde00;
+    border-radius: 15px;
     cursor: pointer;
     margin-bottom: 1.5rem;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: #ffde00;
-    color: #333;
+    background-color: #cc0000;
+    color: #ffde00;
 }
 
 
@@ -66,24 +91,24 @@ button:hover {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    color: #333;
+    color: #3b4cca;
     list-style: none;
 }
 
 #listOfTrainers li, #trainer-list p {
-    color: #333;
+    color: #3b4cca;
     margin: 0.5rem 0;
 }
 
 #mostTrainer {
     background-color: #ffde00;
-    border: 2px solid #3b4cca;
-    border-radius: 12px;
+    border: 5px solid #3b4cca;
+    border-radius: 15px;
     padding: 1.5rem;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    color: #333;
+    color: #3b4cca;
     text-align: center;
     font-weight: bold;
 }
@@ -95,7 +120,6 @@ button:hover {
     margin-top: 0;
     margin-bottom: 20px;
 }
-
 
 .trainer-img {
     width: 100%;
@@ -118,25 +142,3 @@ button:hover {
     margin: 0;
 }
 
-
-/*Header*/
-nav {
-    display: flex;
-    justify-content: center;
-    letter-spacing: 4px;
-}
-nav a {
-    text-decoration: none;
-    color: #cc0000;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #3b4cca;
-    border: 2px solid #cc0000;
-    border-radius: 15px;
-    padding: 15px 35px;
-    margin: 20px 50px;
-}
-nav a:hover {
-    background-color: #cc0000;
-    color: #2456a5;
-}
