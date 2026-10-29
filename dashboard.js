@@ -11,20 +11,49 @@ fetch("http://localhost:3000/top3strongest")
         data: {
             labels: names,
             datasets: [{
-                label: "Total Stats",
-                data: totalStats
+                label: "Total stats",
+                data: totalStats,
+                backgroundColor: "#3b4cca",
+                borderColor: "#263a9b",
+                borderWidth: 1,
+                borderRadius: 6
             }]
         },
         options: {
             responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "#cc0000"
+                    }
+                }
+            },
             scales: {
+                x: {
+                    ticks: {
+                        color: "#cc0000"
+                    },
+                    title: {
+                        display: true,
+                        text: "Pokémon",
+                        color: "#cc0000"
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#cc0000"
+                    },
+                    title: {
+                        display: true,
+                        text: "Average Stat",
+                        color: "#cc0000"
+                    }
                 }
             }
         }
-    })
-})
+    });
+});
 
 fetch("http://localhost:3000/top3weakest")
     .then(response => response.json())
@@ -39,20 +68,51 @@ fetch("http://localhost:3000/top3weakest")
             data: {
                 labels: names2,
                 datasets: [{
-                    label: "Total Stats",
-                    data: totalStats2
+                    label: "Total stats",
+                    data: totalStats2,
+                    backgroundColor: "#3b4cca",
+                    borderColor: "#263a9b",
+                    borderWidth: 1,
+                    borderRadius: 6
                 }]
             },
             options: {
                 responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: "#cc0000"
+                        }
+                    }
+                },
                 scales: {
+                    x: {
+                        ticks: {
+                            color: "#cc0000"
+                        },
+                        title: {
+                            display: true,
+                            text: "Pokémon",
+                            color: "#cc0000"
+                        }
+                    },
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            color: "#cc0000"
+                        },
+                        title: {
+                            display: true,
+                            text: "Average Stat",
+                            color: "#cc0000"
+                        }
                     }
                 }
             }
-        })
-    })
+        });
+    });
+
+
 
 
 
@@ -69,15 +129,50 @@ fetch("http://localhost:3000/typeHighestAvgStat")
                 datasets: [{
                     label: "Body type with the highest average stat",
                     data: stats,
-                    backgroundColor: '#9bd0ff'
+                    backgroundColor: "#3b4cca",
+                    borderColor: "#263a9b",
+                    borderWidth: 1,
+                    borderRadius: 6
                 }]
             },
             options: {
                 responsive: true,
-                scales: { y: { beginAtZero: true } }
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: "#cc0000"
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#cc0000"
+                        },
+                        title: {
+                            display: true,
+                            text: "Pokémon Type",
+                            color: "#cc0000"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: "#cc0000"
+                        },
+                        title: {
+                            display: true,
+                            text: "Average Stat",
+                            color: "#cc0000"
+                        }
+                    }
+                }
             }
         });
     });
+
+
+
 
 
 
@@ -86,13 +181,22 @@ fetch("http://localhost:3000/pokemon/mostBalanced")
     .then(response => response.json())
     .then(data => {
         const listElement = document.querySelector("#pokemonList");
-        listElement.innerHTML = "";
 
         data.forEach(pokemon => {
             const li = document.createElement("li");
-            li.textContent = `${pokemon.name} - Span: ${pokemon.stat_range}`;
+
+            const pokeImg = document.createElement("img");
+            pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex_number}.png`;
+            pokeImg.alt = pokemon.name;
+
+            const text = document.createElement("p");
+            text.textContent = `${pokemon.name} - Span: ${pokemon.stat_range}`;
+
+            li.appendChild(pokeImg);
+            li.appendChild(text);
+
             listElement.appendChild(li);
         });
     });
 
-//ggg
+
