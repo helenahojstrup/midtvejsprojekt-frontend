@@ -82,9 +82,26 @@ const filterPokemon = () => {
 }
 selectedPrimaryType.addEventListener("change", filterPokemon)
 minAttack.addEventListener("change", filterPokemon)
-pokemonName.addEventListener("change", filterPokemon)
+pokemonName.addEventListener("input", filterPokemon)
 hp.addEventListener("change", filterPokemon)
 sorterAttack.addEventListener("change", filterPokemon)
+
+
+//Filter button
+const filterBtn = document.querySelector("#filterBtn")
+const filterArrow = document.querySelector("#filter-arrow")
+console.log(filterArrow)
+const pokemonFilters = document.querySelector("#pokemon-filters")
+filterBtn.addEventListener("click", () => {
+    if (pokemonFilters.style.display === "flex") {
+        pokemonFilters.style.display = "none"
+        filterArrow.style.transform = "rotate(0deg)"
+    }
+    else {
+        pokemonFilters.style.display = "flex"
+        filterArrow.style.transform = "rotate(180deg)"
+    }
+})
 
 
 
