@@ -32,7 +32,7 @@ nav a:hover {
     color: #ffde00;
 }
 
-/*filterrs*/
+/*filters*/
 #pokemon-filters {
     display: none;
 }
@@ -89,9 +89,11 @@ nav a:hover {
 }
 
 #pokemonListe li {
-        border: 2px solid #fede00;
+    border: 3px solid #fede00;
+    background-color: #cc0000;
     font-size: 10px;
     list-style: none;
-        border-radius: 12px;
-        padding: 10px 40px;
+    border-radius: 15px;
+    padding: 5px 40px;
+    margin: 10px;
 }
