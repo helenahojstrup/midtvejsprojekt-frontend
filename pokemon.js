@@ -174,7 +174,7 @@ filterBtn.addEventListener("click", () => {
 
 
 
-
+/*
 //bodytypes
 fetch('http://localhost:3000/bodytypes')
     .then(response => response.json())
@@ -186,3 +186,5 @@ fetch('http://localhost:3000/bodytypes')
             listWithBodyTypes.append(p)
         })
     });
+
+ */
