@@ -23,7 +23,6 @@ fetch("http://localhost:3000/all/pokemon")
                 special_defence: "Special defence",
                 special_attack: "Special attack"
             };
-
             const statsNames = Object.keys(stats);
 
             for (let j = 0; j < statsNames.length; j++) {
