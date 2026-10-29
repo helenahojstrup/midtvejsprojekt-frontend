@@ -96,7 +96,7 @@ fetch("http://localhost:3000/trainer/mostPokemon")
             trainerPokemonObject.appendChild(statsList)
             mostTrainer.appendChild(trainerPokemonObject)
         }
-    })
+    });
 
 
 
